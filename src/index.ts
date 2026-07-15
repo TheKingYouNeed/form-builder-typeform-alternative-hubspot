@@ -117,8 +117,8 @@ app.get("/api/oauth/callback", async (context) => {
   const connectionId = existing?.id ?? crypto.randomUUID();
   const accessEncrypted = await encryptSecret(token.access_token, context.env.TOKEN_ENCRYPTION_KEY);
   const refreshEncrypted = await encryptSecret(token.refresh_token, context.env.TOKEN_ENCRYPTION_KEY);
-  await context.env.DB.prepare(`INSERT INTO connections (id, hub_id, access_token_encrypted, refresh_token_encrypted, token_expires_at, scopes, status, mapping_json)
-    VALUES (?, ?, ?, ?, ?, ?, 'active', '{}')
+  await context.env.DB.prepare(`INSERT INTO connections (id, hub_id, access_token_encrypted, refresh_token_encrypted, token_expires_at, scopes, status)
+    VALUES (?, ?, ?, ?, ?, ?, 'active')
     ON CONFLICT(hub_id) DO UPDATE SET access_token_encrypted = excluded.access_token_encrypted, refresh_token_encrypted = excluded.refresh_token_encrypted,
       token_expires_at = excluded.token_expires_at, scopes = excluded.scopes, status = 'active', updated_at = CURRENT_TIMESTAMP`)
     .bind(connectionId, hubId, accessEncrypted, refreshEncrypted, now + token.expires_in, JSON.stringify(token.scopes)).run();
