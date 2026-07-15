@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.4 — 2026-07-15
+
+- Refined landing-page, form-editor, and conversational-form visual hierarchy and responsive spacing.
+- Added clearer hover, focus, disabled, progress, and reduced-motion states without changing app behavior or dependencies.
+
 ## 0.1.3 — 2026-07-15
 
 - Linked the live app and open-source disclosure to an immutable production GitHub release for reviewer traceability.
