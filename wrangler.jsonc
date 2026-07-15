@@ -3,7 +3,10 @@
   "name": "form-builder-typeform-alternative",
   "main": "src/index.ts",
   "assets": {
-    "directory": "./public"
+    "directory": "./public",
+    "run_worker_first": [
+      "/indexnow-key.txt"
+    ]
   },
   "compatibility_date": "2026-07-15",
   "workers_dev": true,

@@ -7,6 +7,7 @@ export interface Env {
   HUBSPOT_CLIENT_SECRET: string;
   TOKEN_ENCRYPTION_KEY: string;
   SESSION_SECRET: string;
+  INDEXNOW_KEY?: string;
 }
 
 export interface ConnectionRow {

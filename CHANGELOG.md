@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.2 — 2026-07-15
+
+- Added a Cloudflare secret-backed IndexNow ownership endpoint without committing the verification key.
+- Scoped Worker-first asset routing to the IndexNow verification path.
+- Preflighted and submitted the landing, setup, pricing, and open-source pages to IndexNow; the API accepted all four URLs.
+
 ## 0.1.1 — 2026-07-15
 
 - Added Marketplace-ready app icon, product screenshots, listing copy, reviewer checklist, and independent production beta instructions.

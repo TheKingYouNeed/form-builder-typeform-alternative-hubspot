@@ -85,6 +85,9 @@ app.get("/privacy", (context) => context.html(privacyPage()));
 app.get("/terms", (context) => context.html(termsPage()));
 app.get("/support", (context) => context.html(supportPage()));
 app.get("/open-source", (context) => context.html(openSourcePage()));
+app.get("/indexnow-key.txt", (context) => context.env.INDEXNOW_KEY
+  ? context.text(context.env.INDEXNOW_KEY, 200, { "cache-control": "public, max-age=3600" })
+  : context.text("Not configured", 404));
 app.get("/robots.txt", (context) => context.text(`User-agent: *\nAllow: /\nDisallow: /app\nDisallow: /api/\n\nUser-agent: GPTBot\nAllow: /\n\nUser-agent: ClaudeBot\nAllow: /\n\nUser-agent: PerplexityBot\nAllow: /\n\nUser-agent: Google-Extended\nAllow: /\n\nSitemap: ${context.env.PUBLIC_BASE_URL}/sitemap.xml\n`));
 app.get("/sitemap.xml", (context) => context.body(`<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>${context.env.PUBLIC_BASE_URL}/</loc></url><url><loc>${context.env.PUBLIC_BASE_URL}/demo</loc></url><url><loc>${context.env.PUBLIC_BASE_URL}/docs/setup</loc></url><url><loc>${context.env.PUBLIC_BASE_URL}/pricing</loc></url><url><loc>${context.env.PUBLIC_BASE_URL}/privacy</loc></url><url><loc>${context.env.PUBLIC_BASE_URL}/terms</loc></url><url><loc>${context.env.PUBLIC_BASE_URL}/support</loc></url><url><loc>${context.env.PUBLIC_BASE_URL}/open-source</loc></url></urlset>`, 200, { "content-type": "application/xml; charset=utf-8" }));
 
