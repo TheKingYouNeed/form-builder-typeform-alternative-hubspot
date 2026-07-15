@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.3 — 2026-07-15
+
+- Linked the live app and open-source disclosure to an immutable production GitHub release for reviewer traceability.
+
 ## 0.1.2 — 2026-07-15
 
 - Added a Cloudflare secret-backed IndexNow ownership endpoint without committing the verification key.

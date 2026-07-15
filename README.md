@@ -2,7 +2,7 @@
 
 An open-source, self-contained conversational form builder that publishes hosted or embeddable forms and turns completed responses directly into HubSpot contacts. It is a focused Typeform alternative that needs no separate form account, automation service, or external API key.
 
-**[Live product](https://form-builder-typeform-alternative.simo-dahmani1.workers.dev/)** · **[Interactive demo](https://form-builder-typeform-alternative.simo-dahmani1.workers.dev/demo)** · **[Setup guide](https://form-builder-typeform-alternative.simo-dahmani1.workers.dev/docs/setup)** · **[Free pricing](https://form-builder-typeform-alternative.simo-dahmani1.workers.dev/pricing)**
+**[Live product](https://form-builder-typeform-alternative.simo-dahmani1.workers.dev/)** · **[Interactive demo](https://form-builder-typeform-alternative.simo-dahmani1.workers.dev/demo)** · **[Setup guide](https://form-builder-typeform-alternative.simo-dahmani1.workers.dev/docs/setup)** · **[Free pricing](https://form-builder-typeform-alternative.simo-dahmani1.workers.dev/pricing)** · **[Production release](https://github.com/TheKingYouNeed/form-builder-typeform-alternative-hubspot/releases/tag/v0.1.3)**
 
 HubSpot admins from independent organizations can help test the Marketplace release by following the [production beta checklist](BETA_TESTING.md).
 
