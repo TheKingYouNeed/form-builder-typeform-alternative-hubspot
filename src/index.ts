@@ -6,7 +6,7 @@ import { createSessionCookie, encryptSecret, randomToken, sha256Hex, verifySessi
 import { authorizationUrl, exchangeAuthorizationCode, uninstallHubSpotApp, upsertContact } from "./hubspot";
 import { FIELD_KINDS, normalizePlainAnswer } from "./heyform-port";
 import { maskEmail } from "./privacy";
-import { landingPage, openSourcePage, privacyPage, setupPage, supportPage, termsPage } from "./marketing-pages";
+import { landingPage, openSourcePage, pricingPage, privacyPage, setupPage, supportPage, termsPage } from "./marketing-pages";
 import type { ConnectionRow, Env, FormField, FormRow } from "./types";
 
 type Variables = { connection: ConnectionRow };
@@ -53,10 +53,11 @@ app.use("*", async (context, next) => {
   await next();
   const isPublicForm = new URL(context.req.url).pathname.startsWith("/f/");
   context.res.headers.set("x-content-type-options", "nosniff");
+  context.res.headers.set("strict-transport-security", "max-age=31536000; includeSubDomains");
   context.res.headers.set("referrer-policy", "strict-origin-when-cross-origin");
   context.res.headers.set("permissions-policy", "camera=(), microphone=(), geolocation=()");
   if (!isPublicForm) context.res.headers.set("x-frame-options", "DENY");
-  context.res.headers.set("content-security-policy", `default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; frame-ancestors ${isPublicForm ? "*" : "'none'"}; base-uri 'self'; form-action 'self'`);
+  context.res.headers.set("content-security-policy", `default-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; script-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; frame-ancestors ${isPublicForm ? "*" : "'none'"}; base-uri 'self'; form-action 'self'`);
 });
 
 app.onError((error, context) => {
@@ -79,12 +80,13 @@ app.get("/demo/form", (context) => {
   return context.html(publicFormPage(form, fields, true));
 });
 app.get("/docs/setup", (context) => context.html(setupPage()));
+app.get("/pricing", (context) => context.html(pricingPage()));
 app.get("/privacy", (context) => context.html(privacyPage()));
 app.get("/terms", (context) => context.html(termsPage()));
 app.get("/support", (context) => context.html(supportPage()));
 app.get("/open-source", (context) => context.html(openSourcePage()));
-app.get("/robots.txt", (context) => context.text(`User-agent: *\nAllow: /\nDisallow: /app\nDisallow: /api/\nSitemap: ${context.env.PUBLIC_BASE_URL}/sitemap.xml\n`));
-app.get("/sitemap.xml", (context) => context.body(`<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>${context.env.PUBLIC_BASE_URL}/</loc></url><url><loc>${context.env.PUBLIC_BASE_URL}/demo</loc></url><url><loc>${context.env.PUBLIC_BASE_URL}/docs/setup</loc></url><url><loc>${context.env.PUBLIC_BASE_URL}/privacy</loc></url><url><loc>${context.env.PUBLIC_BASE_URL}/terms</loc></url><url><loc>${context.env.PUBLIC_BASE_URL}/support</loc></url><url><loc>${context.env.PUBLIC_BASE_URL}/open-source</loc></url></urlset>`, 200, { "content-type": "application/xml; charset=utf-8" }));
+app.get("/robots.txt", (context) => context.text(`User-agent: *\nAllow: /\nDisallow: /app\nDisallow: /api/\n\nUser-agent: GPTBot\nAllow: /\n\nUser-agent: ClaudeBot\nAllow: /\n\nUser-agent: PerplexityBot\nAllow: /\n\nUser-agent: Google-Extended\nAllow: /\n\nSitemap: ${context.env.PUBLIC_BASE_URL}/sitemap.xml\n`));
+app.get("/sitemap.xml", (context) => context.body(`<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>${context.env.PUBLIC_BASE_URL}/</loc></url><url><loc>${context.env.PUBLIC_BASE_URL}/demo</loc></url><url><loc>${context.env.PUBLIC_BASE_URL}/docs/setup</loc></url><url><loc>${context.env.PUBLIC_BASE_URL}/pricing</loc></url><url><loc>${context.env.PUBLIC_BASE_URL}/privacy</loc></url><url><loc>${context.env.PUBLIC_BASE_URL}/terms</loc></url><url><loc>${context.env.PUBLIC_BASE_URL}/support</loc></url><url><loc>${context.env.PUBLIC_BASE_URL}/open-source</loc></url></urlset>`, 200, { "content-type": "application/xml; charset=utf-8" }));
 
 app.get("/api/health", async (context) => {
   const database = await context.env.DB.prepare("SELECT 1 AS ok").first<{ ok: number }>();

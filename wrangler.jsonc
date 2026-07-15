@@ -2,6 +2,9 @@
   "$schema": "./node_modules/wrangler/config-schema.json",
   "name": "form-builder-typeform-alternative",
   "main": "src/index.ts",
+  "assets": {
+    "directory": "./public"
+  },
   "compatibility_date": "2026-07-15",
   "workers_dev": true,
   "observability": {

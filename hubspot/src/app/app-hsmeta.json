@@ -8,8 +8,7 @@
     "auth": {
       "type": "oauth",
       "redirectUrls": [
-        "https://form-builder-typeform-alternative.simo-dahmani1.workers.dev/api/oauth/callback",
-        "http://localhost:8787/api/oauth/callback"
+        "https://form-builder-typeform-alternative.simo-dahmani1.workers.dev/api/oauth/callback"
       ],
       "requiredScopes": [
         "oauth",

@@ -1,12 +1,16 @@
 # Form Builder – Typeform Alternative for HubSpot
 
-An open-source, self-contained form builder that publishes hosted or embeddable forms and turns completed responses directly into HubSpot contacts. Customers do not need Typeform, Formbricks Cloud, Zapier, Make, or an external API key.
+An open-source, self-contained conversational form builder that publishes hosted or embeddable forms and turns completed responses directly into HubSpot contacts. It is a focused Typeform alternative that needs no separate form account, automation service, or external API key.
+
+**[Live product](https://form-builder-typeform-alternative.simo-dahmani1.workers.dev/)** · **[Interactive demo](https://form-builder-typeform-alternative.simo-dahmani1.workers.dev/demo)** · **[Setup guide](https://form-builder-typeform-alternative.simo-dahmani1.workers.dev/docs/setup)** · **[Free pricing](https://form-builder-typeform-alternative.simo-dahmani1.workers.dev/pricing)**
+
+HubSpot admins from independent organizations can help test the Marketplace release by following the [production beta checklist](BETA_TESTING.md).
 
 ## What it does
 
 - Installs through HubSpot OAuth 2026-03.
 - Requests only `oauth`, `crm.objects.contacts.read`, and `crm.objects.contacts.write`.
-- Creates draft and published forms with text, email, textarea, select, and checkbox fields.
+- Creates draft and published forms with short text, long text, email, multiple-choice, and yes/no fields.
 - Publishes shareable and iframe-embeddable hosted form URLs.
 - Maps each question to a HubSpot contact property.
 - Updates by email without clearing unrelated HubSpot properties.

@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.1.1 — 2026-07-15
+
+- Added Marketplace-ready app icon, product screenshots, listing copy, reviewer checklist, and independent production beta instructions.
+- Added a public free-pricing page and screenshot-backed setup, disconnect, and uninstall documentation.
+- Added SoftwareApplication, Product, and FAQ structured data; canonical metadata; sitemap coverage; and explicit AI crawler rules.
+- Removed external font requests, added a favicon and HSTS, and corrected all Lighthouse accessibility findings in the editor and public form.
+- Removed the development OAuth redirect from the production HubSpot app configuration.
+- Verified a real published-form submission created the expected HubSpot contact in production.
+
 ## 0.1.0 — 2026-07-15
 
 - Initial self-contained Form Builder — Typeform Alternative release.
