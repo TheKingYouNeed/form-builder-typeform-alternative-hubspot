@@ -1,0 +1,4 @@
+HUBSPOT_CLIENT_ID=replace_me
+HUBSPOT_CLIENT_SECRET=replace_me
+TOKEN_ENCRYPTION_KEY=base64_encoded_32_byte_key
+SESSION_SECRET=long_random_value

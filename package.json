@@ -1,0 +1,31 @@
+{
+  "name": "form-builder-typeform-alternative",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "license": "AGPL-3.0-only",
+  "scripts": {
+    "dev": "wrangler dev --persist-to=.wrangler/state",
+    "deploy": "wrangler deploy",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "check": "pnpm typecheck && pnpm test",
+    "db:migrate:local": "wrangler d1 migrations apply form-builder-hubspot --local",
+    "db:migrate:remote": "wrangler d1 migrations apply form-builder-hubspot --remote"
+  },
+  "dependencies": {
+    "hono": "^4.10.7",
+    "zod": "^4.1.12"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^5.20260715.1",
+    "@types/node": "^24.10.1",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.15",
+    "wrangler": "^4.111.0"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "packageManager": "pnpm@10.30.3"
+}

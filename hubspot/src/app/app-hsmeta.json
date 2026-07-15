@@ -1,0 +1,36 @@
+{
+  "uid": "form_builder_typeform_alternative",
+  "type": "app",
+  "config": {
+    "description": "Create conversion-focused forms with an open-source Typeform alternative and sync completed responses to HubSpot contacts.",
+    "name": "Form Builder - Typeform Alternative",
+    "distribution": "marketplace",
+    "auth": {
+      "type": "oauth",
+      "redirectUrls": [
+        "https://form-builder-typeform-alternative.simo-dahmani1.workers.dev/api/oauth/callback",
+        "http://localhost:8787/api/oauth/callback"
+      ],
+      "requiredScopes": [
+        "oauth",
+        "crm.objects.contacts.read",
+        "crm.objects.contacts.write"
+      ],
+      "optionalScopes": [],
+      "conditionallyRequiredScopes": []
+    },
+    "permittedUrls": {
+      "fetch": [
+        "https://api.hubapi.com",
+        "https://form-builder-typeform-alternative.simo-dahmani1.workers.dev"
+      ],
+      "iframe": [],
+      "img": []
+    },
+    "support": {
+      "supportEmail": "simo.dahmani1@gmail.com",
+      "documentationUrl": "https://form-builder-typeform-alternative.simo-dahmani1.workers.dev/docs/setup",
+      "supportUrl": "https://form-builder-typeform-alternative.simo-dahmani1.workers.dev/support"
+    }
+  }
+}

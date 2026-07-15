@@ -1,0 +1,24 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "form-builder-typeform-alternative",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-07-15",
+  "workers_dev": true,
+  "observability": {
+    "enabled": true,
+    "head_sampling_rate": 1
+  },
+  "vars": {
+    "ENVIRONMENT": "production",
+    "PUBLIC_BASE_URL": "https://form-builder-typeform-alternative.simo-dahmani1.workers.dev",
+    "SUPPORT_EMAIL": "simo.dahmani1@gmail.com"
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "form-builder-hubspot",
+      "database_id": "819dfe9d-2f9e-4ab8-9dd5-47215f764c09",
+      "migrations_dir": "migrations"
+    }
+  ]
+}
